@@ -1,0 +1,113 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://raw.githubusercontent.com/api-evangelist/google-cloud-artifact-registry/refs/heads/main/json-schema/json-schema.yml
+title: Google Cloud Artifact Registry Schema
+description: Schema defining the core resources of the Google Cloud Artifact Registry API.
+type: object
+properties:
+  repository:
+    $ref: '#/$defs/Repository'
+  package:
+    $ref: '#/$defs/Package'
+  dockerImage:
+    $ref: '#/$defs/DockerImage'
+$defs:
+  Repository:
+    type: object
+    title: Repository
+    description: A repository for storing artifacts in Artifact Registry.
+    properties:
+      name:
+        type: string
+        description: >-
+          The name of the repository in the format
+          projects/{project}/locations/{location}/repositories/{repository}.
+      format:
+        type: string
+        description: The format of packages stored in the repository.
+        enum:
+          - DOCKER
+          - MAVEN
+          - NPM
+          - PYTHON
+          - APT
+          - YUM
+          - HELM
+          - GO
+      description:
+        type: string
+        description: The user-provided description of the repository.
+      labels:
+        type: object
+        additionalProperties:
+          type: string
+        description: Labels with user-defined metadata.
+      createTime:
+        type: string
+        format: date-time
+        description: The time when the repository was created.
+      updateTime:
+        type: string
+        format: date-time
+        description: The time when the repository was last updated.
+      mode:
+        type: string
+        description: The mode of the repository.
+        enum:
+          - STANDARD_REPOSITORY
+          - VIRTUAL_REPOSITORY
+          - REMOTE_REPOSITORY
+    required:
+      - name
+      - format
+  Package:
+    type: object
+    title: Package
+    description: A package within an Artifact Registry repository.
+    properties:
+      name:
+        type: string
+        description: The name of the package.
+      displayName:
+        type: string
+        description: The display name of the package.
+      createTime:
+        type: string
+        format: date-time
+      updateTime:
+        type: string
+        format: date-time
+    required:
+      - name
+  DockerImage:
+    type: object
+    title: Docker Image
+    description: A Docker image stored in an Artifact Registry repository.
+    properties:
+      name:
+        type: string
+        description: The name of the Docker image.
+      uri:
+        type: string
+        description: The URI that can be used to pull the image.
+      tags:
+        type: array
+        items:
+          type: string
+        description: Tags associated with the image.
+      imageSizeBytes:
+        type: string
+        description: The size of the image in bytes.
+      mediaType:
+        type: string
+        description: The media type of the image.
+      uploadTime:
+        type: string
+        format: date-time
+        description: The time when the image was uploaded.
+      buildTime:
+        type: string
+        format: date-time
+        description: The time when the image was built.
+    required:
+      - name
+      - uri

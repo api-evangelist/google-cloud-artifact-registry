@@ -1,0 +1,31 @@
+"@context":
+  "@vocab": https://schema.org/
+  gcloud: https://cloud.google.com/artifact-registry/docs/reference/rest/v1/
+  name: schema:name
+  description: schema:description
+  url: schema:url
+  Repository:
+    "@id": gcloud:projects.locations.repositories
+    "@type": schema:DigitalDocument
+    name: schema:name
+    description: schema:description
+    format: schema:encodingFormat
+    createTime: schema:dateCreated
+    updateTime: schema:dateModified
+  Package:
+    "@id": gcloud:projects.locations.repositories.packages
+    "@type": schema:SoftwareApplication
+    name: schema:name
+    displayName: schema:alternateName
+    createTime: schema:dateCreated
+    updateTime: schema:dateModified
+  DockerImage:
+    "@id": gcloud:projects.locations.repositories.dockerImages
+    "@type": schema:SoftwareApplication
+    name: schema:name
+    uri: schema:url
+    tags: schema:keywords
+    imageSizeBytes: schema:fileSize
+    mediaType: schema:encodingFormat
+    uploadTime: schema:datePublished
+    buildTime: schema:dateCreated

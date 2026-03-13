@@ -1,0 +1,362 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Artifact Registry API
+  description: >-
+    The Artifact Registry API provides programmatic access to create and manage
+    repositories, upload and download artifacts, manage packages and versions,
+    and configure IAM policies for artifact storage across multiple formats
+    including Docker images, language packages, and OS packages.
+  version: v1
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/artifact-registry
+externalDocs:
+  description: Google Cloud Artifact Registry Documentation
+  url: https://cloud.google.com/artifact-registry/docs
+servers:
+  - url: https://artifactregistry.googleapis.com
+paths:
+  /v1/projects/{projectId}/locations:
+    get:
+      operationId: listLocations
+      summary: List Locations
+      description: Lists available locations for the specified project.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListLocationsResponse'
+  /v1/projects/{projectId}/locations/{location}/repositories:
+    get:
+      operationId: listRepositories
+      summary: List Repositories
+      description: Lists repositories in a given project and location.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRepositoriesResponse'
+    post:
+      operationId: createRepository
+      summary: Create Repository
+      description: Creates a new repository in the specified project and location.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Repository'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}:
+    get:
+      operationId: getRepository
+      summary: Get Repository
+      description: Gets a repository.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: repositoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Repository'
+    patch:
+      operationId: updateRepository
+      summary: Update Repository
+      description: Updates a repository.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: repositoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Repository'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Repository'
+    delete:
+      operationId: deleteRepository
+      summary: Delete Repository
+      description: Deletes a repository and all of its contents.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: repositoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/packages:
+    get:
+      operationId: listPackages
+      summary: List Packages
+      description: Lists packages in a repository.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: repositoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPackagesResponse'
+  /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/dockerImages:
+    get:
+      operationId: listDockerImages
+      summary: List Docker Images
+      description: Lists Docker images in a repository.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: repositoryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDockerImagesResponse'
+components:
+  schemas:
+    Repository:
+      type: object
+      description: A repository for storing artifacts.
+      properties:
+        name:
+          type: string
+          description: The name of the repository.
+        format:
+          type: string
+          description: The format of packages stored in the repository.
+          enum:
+            - DOCKER
+            - MAVEN
+            - NPM
+            - PYTHON
+            - APT
+            - YUM
+            - HELM
+            - GO
+        description:
+          type: string
+          description: The user-provided description of the repository.
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels with user-defined metadata.
+        createTime:
+          type: string
+          format: date-time
+          description: The time when the repository was created.
+        updateTime:
+          type: string
+          format: date-time
+          description: The time when the repository was last updated.
+        mode:
+          type: string
+          description: The mode of the repository.
+          enum:
+            - STANDARD_REPOSITORY
+            - VIRTUAL_REPOSITORY
+            - REMOTE_REPOSITORY
+    Package:
+      type: object
+      description: A package within a repository.
+      properties:
+        name:
+          type: string
+          description: The name of the package.
+        displayName:
+          type: string
+          description: The display name of the package.
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    DockerImage:
+      type: object
+      description: A Docker image stored in a repository.
+      properties:
+        name:
+          type: string
+        uri:
+          type: string
+          description: The URI of the Docker image.
+        tags:
+          type: array
+          items:
+            type: string
+        imageSizeBytes:
+          type: string
+        mediaType:
+          type: string
+        uploadTime:
+          type: string
+          format: date-time
+        buildTime:
+          type: string
+          format: date-time
+    Operation:
+      type: object
+      description: A long-running operation.
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+        error:
+          type: object
+        response:
+          type: object
+    ListLocationsResponse:
+      type: object
+      properties:
+        locations:
+          type: array
+          items:
+            type: object
+        nextPageToken:
+          type: string
+    ListRepositoriesResponse:
+      type: object
+      properties:
+        repositories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Repository'
+        nextPageToken:
+          type: string
+    ListPackagesResponse:
+      type: object
+      properties:
+        packages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Package'
+        nextPageToken:
+          type: string
+    ListDockerImagesResponse:
+      type: object
+      properties:
+        dockerImages:
+          type: array
+          items:
+            $ref: '#/components/schemas/DockerImage'
+        nextPageToken:
+          type: string
