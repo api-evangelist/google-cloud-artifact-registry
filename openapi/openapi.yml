@@ -19,7 +19,7 @@ paths:
   /v1/projects/{projectId}/locations:
     get:
       operationId: listLocations
-      summary: List Locations
+      summary: Google Cloud Artifact Registry List Locations
       description: Lists available locations for the specified project.
       parameters:
         - name: projectId
@@ -37,7 +37,7 @@ paths:
   /v1/projects/{projectId}/locations/{location}/repositories:
     get:
       operationId: listRepositories
-      summary: List Repositories
+      summary: Google Cloud Artifact Registry List Repositories
       description: Lists repositories in a given project and location.
       parameters:
         - name: projectId
@@ -59,7 +59,7 @@ paths:
                 $ref: '#/components/schemas/ListRepositoriesResponse'
     post:
       operationId: createRepository
-      summary: Create Repository
+      summary: Google Cloud Artifact Registry Create Repository
       description: Creates a new repository in the specified project and location.
       parameters:
         - name: projectId
@@ -88,7 +88,7 @@ paths:
   /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}:
     get:
       operationId: getRepository
-      summary: Get Repository
+      summary: Google Cloud Artifact Registry Get Repository
       description: Gets a repository.
       parameters:
         - name: projectId
@@ -115,7 +115,7 @@ paths:
                 $ref: '#/components/schemas/Repository'
     patch:
       operationId: updateRepository
-      summary: Update Repository
+      summary: Google Cloud Artifact Registry Update Repository
       description: Updates a repository.
       parameters:
         - name: projectId
@@ -148,7 +148,7 @@ paths:
                 $ref: '#/components/schemas/Repository'
     delete:
       operationId: deleteRepository
-      summary: Delete Repository
+      summary: Google Cloud Artifact Registry Delete Repository
       description: Deletes a repository and all of its contents.
       parameters:
         - name: projectId
@@ -176,7 +176,7 @@ paths:
   /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/packages:
     get:
       operationId: listPackages
-      summary: List Packages
+      summary: Google Cloud Artifact Registry List Packages
       description: Lists packages in a repository.
       parameters:
         - name: projectId
@@ -204,7 +204,7 @@ paths:
   /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/dockerImages:
     get:
       operationId: listDockerImages
-      summary: List Docker Images
+      summary: Google Cloud Artifact Registry List Docker Images
       description: Lists Docker images in a repository.
       parameters:
         - name: projectId
