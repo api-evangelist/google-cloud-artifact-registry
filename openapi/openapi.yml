@@ -34,6 +34,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListLocationsResponse'
+      tags:
+        - Projects
   /v1/projects/{projectId}/locations/{location}/repositories:
     get:
       operationId: listRepositories
@@ -57,6 +59,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListRepositoriesResponse'
+      tags:
+        - Projects
     post:
       operationId: createRepository
       summary: Google Cloud Artifact Registry Create Repository
@@ -85,6 +89,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Operation'
+      tags:
+        - Projects
   /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}:
     get:
       operationId: getRepository
@@ -113,6 +119,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Repository'
+      tags:
+        - Projects
     patch:
       operationId: updateRepository
       summary: Google Cloud Artifact Registry Update Repository
@@ -146,6 +154,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Repository'
+      tags:
+        - Projects
     delete:
       operationId: deleteRepository
       summary: Google Cloud Artifact Registry Delete Repository
@@ -173,6 +183,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Operation'
+      tags:
+        - Projects
   /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/packages:
     get:
       operationId: listPackages
@@ -201,6 +213,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListPackagesResponse'
+      tags:
+        - Projects
   /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/dockerImages:
     get:
       operationId: listDockerImages
@@ -229,6 +243,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListDockerImagesResponse'
+      tags:
+        - Projects
 components:
   schemas:
     Repository:
@@ -360,3 +376,5 @@ components:
             $ref: '#/components/schemas/DockerImage'
         nextPageToken:
           type: string
+tags:
+  - name: Projects

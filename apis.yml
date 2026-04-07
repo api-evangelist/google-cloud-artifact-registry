@@ -15,13 +15,13 @@ type: Index
 tags:
   - Artifacts
   - Containers
+  - Docker
+  - Google Cloud
   - Packages
   - Registries
-  - Docker
   - Repositories
-  - Supply Chain
   - Security
-  - Google Cloud
+  - Supply Chain
 apis:
   - name: Google Cloud Artifact Registry API
     description: >-
