@@ -1,46 +1,51 @@
 naftiko: 1.0.0-alpha2
 info:
-  label: Google Cloud Artifact Registry API
-  description: The Artifact Registry API provides programmatic access to create and manage repositories, upload and download
-    artifacts, manage packages and versions, and configure IAM policies for artifact storage across multiple formats including
-    Docker images, language packages, and OS packages.
+  label: Google Cloud Artifact Registry API — Projects
+  description: 'Google Cloud Artifact Registry API — Projects. 8 operations. Lead operation: Google Cloud Artifact Registry
+    List Locations. Self-contained Naftiko capability covering one Google Cloud Artifact Registry business surface.'
   tags:
-  - Google
-  - Cloud
-  - Artifact
-  - Registry
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - Google Cloud Artifact Registry
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_ARTIFACT_REGISTRY_API_KEY: GOOGLE_CLOUD_ARTIFACT_REGISTRY_API_KEY
 capability:
   consumes:
   - type: http
-    namespace: google-cloud-artifact-registry
+    namespace: openapi-projects
     baseUri: https://artifactregistry.googleapis.com
-    description: Google Cloud Artifact Registry API HTTP API.
+    description: Google Cloud Artifact Registry API — Projects business capability. Self-contained, no shared references.
     resources:
-    - name: v1-projects-projectid-locations
+    - name: v1-projects-projectId-locations
       path: /v1/projects/{projectId}/locations
       operations:
       - name: listlocations
         method: GET
         description: Google Cloud Artifact Registry List Locations
-        inputParameters:
-        - name: projectId
-          in: path
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: v1-projects-projectid-locations-location-reposit
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+    - name: v1-projects-projectId-locations-location-repositories
       path: /v1/projects/{projectId}/locations/{location}/repositories
       operations:
       - name: listrepositories
         method: GET
         description: Google Cloud Artifact Registry List Repositories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -50,14 +55,14 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: createrepository
         method: POST
         description: Google Cloud Artifact Registry Create Repository
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -67,17 +72,22 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
-    - name: v1-projects-projectid-locations-location-reposit
+          description: Request body (JSON).
+          required: true
+    - name: v1-projects-projectId-locations-location-repositories-repositoryId
       path: /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}
       operations:
       - name: getrepository
         method: GET
         description: Google Cloud Artifact Registry Get Repository
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -91,14 +101,14 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: updaterepository
         method: PATCH
         description: Google Cloud Artifact Registry Update Repository
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -112,14 +122,19 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
+          description: Request body (JSON).
+          required: true
       - name: deleterepository
         method: DELETE
         description: Google Cloud Artifact Registry Delete Repository
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -133,41 +148,17 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
-    - name: v1-projects-projectid-locations-location-reposit
-      path: /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/packages
-      operations:
-      - name: listpackages
-        method: GET
-        description: Google Cloud Artifact Registry List Packages
-        inputParameters:
-        - name: projectId
-          in: path
-          type: string
-          required: true
-        - name: location
-          in: path
-          type: string
-          required: true
-        - name: repositoryId
-          in: path
-          type: string
-          required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
-    - name: v1-projects-projectid-locations-location-reposit
+    - name: v1-projects-projectId-locations-location-repositories-repositoryId-dockerImages
       path: /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/dockerImages
       operations:
       - name: listdockerimages
         method: GET
         description: Google Cloud Artifact Registry List Docker Images
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: projectId
           in: path
@@ -181,62 +172,83 @@ capability:
           in: path
           type: string
           required: true
+    - name: v1-projects-projectId-locations-location-repositories-repositoryId-packages
+      path: /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/packages
+      operations:
+      - name: listpackages
+        method: GET
+        description: Google Cloud Artifact Registry List Packages
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: repositoryId
+          in: path
+          type: string
+          required: true
   exposes:
   - type: rest
+    namespace: openapi-projects-rest
     port: 8080
-    namespace: google-cloud-artifact-registry-rest
-    description: REST adapter for Google Cloud Artifact Registry API.
+    description: REST adapter for Google Cloud Artifact Registry API — Projects. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
     resources:
-    - path: /v1/projects/{projectId}/locations
-      name: listlocations
+    - path: /v1/v1/projects/{projectid}/locations
+      name: v1-projects-projectid-locations
+      description: REST surface for v1-projects-projectId-locations.
       operations:
       - method: GET
         name: listlocations
         description: Google Cloud Artifact Registry List Locations
-        call: google-cloud-artifact-registry.listlocations
+        call: openapi-projects.listlocations
         with:
           projectId: rest.projectId
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/projects/{projectId}/locations/{location}/repositories
-      name: listrepositories
+    - path: /v1/v1/projects/{projectid}/locations/{location}/repositories
+      name: v1-projects-projectid-locations-location-repositories
+      description: REST surface for v1-projects-projectId-locations-location-repositories.
       operations:
       - method: GET
         name: listrepositories
         description: Google Cloud Artifact Registry List Repositories
-        call: google-cloud-artifact-registry.listrepositories
+        call: openapi-projects.listrepositories
         with:
           projectId: rest.projectId
           location: rest.location
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/projects/{projectId}/locations/{location}/repositories
-      name: createrepository
-      operations:
       - method: POST
         name: createrepository
         description: Google Cloud Artifact Registry Create Repository
-        call: google-cloud-artifact-registry.createrepository
+        call: openapi-projects.createrepository
         with:
           projectId: rest.projectId
           location: rest.location
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}
-      name: getrepository
+    - path: /v1/v1/projects/{projectid}/locations/{location}/repositories/{repositoryid}
+      name: v1-projects-projectid-locations-location-repositories-repositoryid
+      description: REST surface for v1-projects-projectId-locations-location-repositories-repositoryId.
       operations:
       - method: GET
         name: getrepository
         description: Google Cloud Artifact Registry Get Repository
-        call: google-cloud-artifact-registry.getrepository
+        call: openapi-projects.getrepository
         with:
           projectId: rest.projectId
           location: rest.location
@@ -244,27 +256,22 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}
-      name: updaterepository
-      operations:
       - method: PATCH
         name: updaterepository
         description: Google Cloud Artifact Registry Update Repository
-        call: google-cloud-artifact-registry.updaterepository
+        call: openapi-projects.updaterepository
         with:
           projectId: rest.projectId
           location: rest.location
           repositoryId: rest.repositoryId
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}
-      name: deleterepository
-      operations:
       - method: DELETE
         name: deleterepository
         description: Google Cloud Artifact Registry Delete Repository
-        call: google-cloud-artifact-registry.deleterepository
+        call: openapi-projects.deleterepository
         with:
           projectId: rest.projectId
           location: rest.location
@@ -272,27 +279,29 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/packages
-      name: listpackages
-      operations:
-      - method: GET
-        name: listpackages
-        description: Google Cloud Artifact Registry List Packages
-        call: google-cloud-artifact-registry.listpackages
-        with:
-          projectId: rest.projectId
-          location: rest.location
-          repositoryId: rest.repositoryId
-        outputParameters:
-        - type: object
-          mapping: $.
-    - path: /v1/projects/{projectId}/locations/{location}/repositories/{repositoryId}/dockerImages
-      name: listdockerimages
+    - path: /v1/v1/projects/{projectid}/locations/{location}/repositories/{repositoryid}/dockerimages
+      name: v1-projects-projectid-locations-location-repositories-repositoryid-dockerimages
+      description: REST surface for v1-projects-projectId-locations-location-repositories-repositoryId-dockerImages.
       operations:
       - method: GET
         name: listdockerimages
         description: Google Cloud Artifact Registry List Docker Images
-        call: google-cloud-artifact-registry.listdockerimages
+        call: openapi-projects.listdockerimages
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          repositoryId: rest.repositoryId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/projects/{projectid}/locations/{location}/repositories/{repositoryid}/packages
+      name: v1-projects-projectid-locations-location-repositories-repositoryid-packages
+      description: REST surface for v1-projects-projectId-locations-location-repositories-repositoryId-packages.
+      operations:
+      - method: GET
+        name: listpackages
+        description: Google Cloud Artifact Registry List Packages
+        call: openapi-projects.listpackages
         with:
           projectId: rest.projectId
           location: rest.location
@@ -301,204 +310,119 @@ capability:
         - type: object
           mapping: $.
   - type: mcp
+    namespace: openapi-projects-mcp
     port: 9090
-    namespace: google-cloud-artifact-registry-mcp
     transport: http
-    description: MCP adapter for Google Cloud Artifact Registry API for AI agent use.
+    description: MCP adapter for Google Cloud Artifact Registry API — Projects. One tool per consumed operation, routed inline
+      through this capability's consumes block.
     tools:
-    - name: listlocations
+    - name: google-cloud-artifact-registry-list
       description: Google Cloud Artifact Registry List Locations
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-artifact-registry.listlocations
+      call: openapi-projects.listlocations
       with:
         projectId: tools.projectId
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: listrepositories
+    - name: google-cloud-artifact-registry-list-2
       description: Google Cloud Artifact Registry List Repositories
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-artifact-registry.listrepositories
+      call: openapi-projects.listrepositories
       with:
         projectId: tools.projectId
         location: tools.location
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: createrepository
+    - name: google-cloud-artifact-registry-create
       description: Google Cloud Artifact Registry Create Repository
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-cloud-artifact-registry.createrepository
+      call: openapi-projects.createrepository
       with:
         projectId: tools.projectId
         location: tools.location
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: getrepository
+    - name: google-cloud-artifact-registry-get
       description: Google Cloud Artifact Registry Get Repository
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-artifact-registry.getrepository
+      call: openapi-projects.getrepository
       with:
         projectId: tools.projectId
         location: tools.location
         repositoryId: tools.repositoryId
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: repositoryId
-        type: string
-        description: repositoryId
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: updaterepository
+    - name: google-cloud-artifact-registry-update
       description: Google Cloud Artifact Registry Update Repository
       hints:
         readOnly: false
         destructive: false
-        idempotent: false
-      call: google-cloud-artifact-registry.updaterepository
+        idempotent: true
+      call: openapi-projects.updaterepository
       with:
         projectId: tools.projectId
         location: tools.location
         repositoryId: tools.repositoryId
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: repositoryId
-        type: string
-        description: repositoryId
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: deleterepository
+    - name: google-cloud-artifact-registry-delete
       description: Google Cloud Artifact Registry Delete Repository
       hints:
         readOnly: false
         destructive: true
         idempotent: true
-      call: google-cloud-artifact-registry.deleterepository
+      call: openapi-projects.deleterepository
       with:
         projectId: tools.projectId
         location: tools.location
         repositoryId: tools.repositoryId
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: repositoryId
-        type: string
-        description: repositoryId
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: listpackages
-      description: Google Cloud Artifact Registry List Packages
-      hints:
-        readOnly: true
-        destructive: false
-        idempotent: true
-      call: google-cloud-artifact-registry.listpackages
-      with:
-        projectId: tools.projectId
-        location: tools.location
-        repositoryId: tools.repositoryId
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: repositoryId
-        type: string
-        description: repositoryId
-        required: true
-      outputParameters:
-      - type: object
-        mapping: $.
-    - name: listdockerimages
+    - name: google-cloud-artifact-registry-list-3
       description: Google Cloud Artifact Registry List Docker Images
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-artifact-registry.listdockerimages
+      call: openapi-projects.listdockerimages
       with:
         projectId: tools.projectId
         location: tools.location
         repositoryId: tools.repositoryId
-      inputParameters:
-      - name: projectId
-        type: string
-        description: projectId
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: repositoryId
-        type: string
-        description: repositoryId
-        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-artifact-registry-list-4
+      description: Google Cloud Artifact Registry List Packages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: openapi-projects.listpackages
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        repositoryId: tools.repositoryId
       outputParameters:
       - type: object
         mapping: $.
