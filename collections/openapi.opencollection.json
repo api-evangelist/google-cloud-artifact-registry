@@ -1,0 +1,230 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Artifact Registry API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Artifact Registry List Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://artifactregistry.googleapis.com/v1/projects/:projectId/locations",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists available locations for the specified project."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Artifact Registry List Repositories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://artifactregistry.googleapis.com/v1/projects/:projectId/locations/:location/repositories",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists repositories in a given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Artifact Registry Create Repository",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://artifactregistry.googleapis.com/v1/projects/:projectId/locations/:location/repositories",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new repository in the specified project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Artifact Registry Get Repository",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://artifactregistry.googleapis.com/v1/projects/:projectId/locations/:location/repositories/:repositoryId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "repositoryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a repository."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Artifact Registry Update Repository",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://artifactregistry.googleapis.com/v1/projects/:projectId/locations/:location/repositories/:repositoryId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "repositoryId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a repository."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Artifact Registry Delete Repository",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://artifactregistry.googleapis.com/v1/projects/:projectId/locations/:location/repositories/:repositoryId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "repositoryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a repository and all of its contents."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Artifact Registry List Packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://artifactregistry.googleapis.com/v1/projects/:projectId/locations/:location/repositories/:repositoryId/packages",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "repositoryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists packages in a repository."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Artifact Registry List Docker Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://artifactregistry.googleapis.com/v1/projects/:projectId/locations/:location/repositories/:repositoryId/dockerImages",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "repositoryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists Docker images in a repository."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
