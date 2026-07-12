@@ -42,6 +42,10 @@ apis:
       - type: JSONLDContext
         url: json-ld/json-ld.yml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-cloud-artifact-registry-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-cloud-artifact-registry-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/GoogleCloudPlatform
   - type: Portal
@@ -66,6 +70,8 @@ common:
     url: json-ld/json-ld.yml
   - type: Integrations
     url: https://cloud.google.com/marketplace
+  - url: https://docs.cloud.google.com/feeds/artifactregistry-release-notes.xml
+    type: Blog
 integrations:
   - name: Become a Partner
 maintainers:
