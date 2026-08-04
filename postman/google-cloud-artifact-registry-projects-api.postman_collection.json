@@ -1,0 +1,1003 @@
+{
+  "info": {
+    "_postman_id": "e6770763-59a3-4088-91a4-8bfe28128678",
+    "name": "Google Cloud Artifact Registry Projects API",
+    "description": "The Artifact Registry API provides programmatic access to create and manage repositories, upload and download artifacts, manage packages and versions, and configure IAM policies for artifact storage across multiple formats including Docker images, language packages, and OS packages.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:45:54.000Z",
+    "updatedAt": "2026-07-28T01:45:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e6770763-59a3-4088-91a4-8bfe28128678"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectId}",
+              "item": [
+                {
+                  "name": "locations",
+                  "item": [
+                    {
+                      "name": "{location}",
+                      "item": [
+                        {
+                          "name": "repositories",
+                          "item": [
+                            {
+                              "name": "{repositoryId}",
+                              "item": [
+                                {
+                                  "name": "packages",
+                                  "item": [
+                                    {
+                                      "name": "Google Cloud Artifact Registry List Packages",
+                                      "id": "3cb3275e-ee63-48f5-a48d-fc38118e5636",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId/packages",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "repositories",
+                                            ":repositoryId",
+                                            "packages"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "72bcd128-87bd-49fe-9436-8a198c5803e7",
+                                              "key": "projectId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "22e0581d-dd53-474f-891e-3b19d23223d1",
+                                              "key": "location",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "d8d3398f-7ae5-4471-a70e-d7979f431c31",
+                                              "key": "repositoryId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Lists packages in a repository."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "07758eba-e06a-4977-b4ae-9b8999a20d5f",
+                                          "name": "Successful response",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId/packages",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "v1",
+                                                "projects",
+                                                ":projectId",
+                                                "locations",
+                                                ":location",
+                                                "repositories",
+                                                ":repositoryId",
+                                                "packages"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "projectId"
+                                                },
+                                                {
+                                                  "key": "location"
+                                                },
+                                                {
+                                                  "key": "repositoryId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"packages\": [\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:45:54.000Z",
+                                          "updatedAt": "2026-07-28T01:45:54.000Z",
+                                          "uid": "35240-07758eba-e06a-4977-b4ae-9b8999a20d5f"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:45:54.000Z",
+                                      "updatedAt": "2026-07-28T01:45:54.000Z",
+                                      "uid": "35240-3cb3275e-ee63-48f5-a48d-fc38118e5636"
+                                    }
+                                  ],
+                                  "id": "42dc319a-6db1-48c3-81c4-ba86d546330d",
+                                  "createdAt": "2026-07-28T01:45:54.000Z",
+                                  "updatedAt": "2026-07-28T01:45:54.000Z",
+                                  "uid": "35240-42dc319a-6db1-48c3-81c4-ba86d546330d"
+                                },
+                                {
+                                  "name": "dockerImages",
+                                  "item": [
+                                    {
+                                      "name": "Google Cloud Artifact Registry List Docker Images",
+                                      "id": "9bf587ae-ad58-41fc-b4e0-29bde8d5a651",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId/dockerImages",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "repositories",
+                                            ":repositoryId",
+                                            "dockerImages"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "73505343-6a4a-462e-91c7-dd5ec92ada10",
+                                              "key": "projectId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "8c0f81a2-dcab-4e34-a279-8b4a4958677c",
+                                              "key": "location",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "6c6adec0-d94b-43ac-a284-9a2af2c1f355",
+                                              "key": "repositoryId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Lists Docker images in a repository."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "44b73d44-7a4e-4a6c-801c-24ea4cbb9cc0",
+                                          "name": "Successful response",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId/dockerImages",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "v1",
+                                                "projects",
+                                                ":projectId",
+                                                "locations",
+                                                ":location",
+                                                "repositories",
+                                                ":repositoryId",
+                                                "dockerImages"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "projectId"
+                                                },
+                                                {
+                                                  "key": "location"
+                                                },
+                                                {
+                                                  "key": "repositoryId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"dockerImages\": [\n    {\n      \"name\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imageSizeBytes\": \"<string>\",\n      \"mediaType\": \"<string>\",\n      \"uploadTime\": \"<dateTime>\",\n      \"buildTime\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"imageSizeBytes\": \"<string>\",\n      \"mediaType\": \"<string>\",\n      \"uploadTime\": \"<dateTime>\",\n      \"buildTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:45:54.000Z",
+                                          "updatedAt": "2026-07-28T01:45:54.000Z",
+                                          "uid": "35240-44b73d44-7a4e-4a6c-801c-24ea4cbb9cc0"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:45:54.000Z",
+                                      "updatedAt": "2026-07-28T01:45:54.000Z",
+                                      "uid": "35240-9bf587ae-ad58-41fc-b4e0-29bde8d5a651"
+                                    }
+                                  ],
+                                  "id": "e36f7345-49e7-4176-adb6-ba6e6827a95b",
+                                  "createdAt": "2026-07-28T01:45:54.000Z",
+                                  "updatedAt": "2026-07-28T01:45:54.000Z",
+                                  "uid": "35240-e36f7345-49e7-4176-adb6-ba6e6827a95b"
+                                },
+                                {
+                                  "name": "Google Cloud Artifact Registry Get Repository",
+                                  "id": "6a7cd47d-36c2-4ab9-9c56-e6e717b9e01c",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "repositories",
+                                        ":repositoryId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "a9fe706e-d776-4edb-b06d-281e2aef06af",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "06706625-1c12-4517-81b8-0bc1e1396659",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "3fc2fdd9-1b89-434a-a5de-1dc6e3d4717a",
+                                          "key": "repositoryId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Gets a repository."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "7c5c30da-51a5-4809-873c-dab8951f2839",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "repositories",
+                                            ":repositoryId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "repositoryId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"name\": \"<string>\",\n  \"format\": \"PYTHON\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"reprehenderit_9b\": \"<string>\",\n    \"officiab\": \"<string>\",\n    \"sint86\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"mode\": \"VIRTUAL_REPOSITORY\"\n}",
+                                      "createdAt": "2026-07-28T01:45:54.000Z",
+                                      "updatedAt": "2026-07-28T01:45:54.000Z",
+                                      "uid": "35240-7c5c30da-51a5-4809-873c-dab8951f2839"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:45:54.000Z",
+                                  "updatedAt": "2026-07-28T01:45:54.000Z",
+                                  "uid": "35240-6a7cd47d-36c2-4ab9-9c56-e6e717b9e01c"
+                                },
+                                {
+                                  "name": "Google Cloud Artifact Registry Update Repository",
+                                  "id": "6865483d-307d-4a11-bbf4-18ec777846cb",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"format\": \"PYTHON\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"reprehenderit_9b\": \"<string>\",\n    \"officiab\": \"<string>\",\n    \"sint86\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"mode\": \"VIRTUAL_REPOSITORY\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "repositories",
+                                        ":repositoryId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "4117e893-90db-4f80-910e-33fcc8d542d5",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "3707ac4a-95c6-40be-bc68-03a45b7ead36",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "2ebe47a1-a7c1-49e2-9437-dfb4dd843bed",
+                                          "key": "repositoryId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Updates a repository."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "94c75c1f-b884-4ec8-b786-dc1300e96b32",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"name\": \"<string>\",\n  \"format\": \"PYTHON\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"reprehenderit_9b\": \"<string>\",\n    \"officiab\": \"<string>\",\n    \"sint86\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"mode\": \"VIRTUAL_REPOSITORY\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "repositories",
+                                            ":repositoryId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "repositoryId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"name\": \"<string>\",\n  \"format\": \"PYTHON\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"reprehenderit_9b\": \"<string>\",\n    \"officiab\": \"<string>\",\n    \"sint86\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"mode\": \"VIRTUAL_REPOSITORY\"\n}",
+                                      "createdAt": "2026-07-28T01:45:54.000Z",
+                                      "updatedAt": "2026-07-28T01:45:54.000Z",
+                                      "uid": "35240-94c75c1f-b884-4ec8-b786-dc1300e96b32"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:45:54.000Z",
+                                  "updatedAt": "2026-07-28T01:45:54.000Z",
+                                  "uid": "35240-6865483d-307d-4a11-bbf4-18ec777846cb"
+                                },
+                                {
+                                  "name": "Google Cloud Artifact Registry Delete Repository",
+                                  "id": "6eb3cf6b-9fa1-4549-b883-8b4e8128403c",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "repositories",
+                                        ":repositoryId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "946d39c0-763c-4608-b819-41e4cafc50b9",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "f6c72d7a-db19-4fa8-8b9e-18f149ae3d70",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "64cef7ce-8308-45fb-94b5-c60caa5e2edd",
+                                          "key": "repositoryId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Deletes a repository and all of its contents."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "d98b73ac-ea9b-4ffd-9b17-530d6e7d533c",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories/:repositoryId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "repositories",
+                                            ":repositoryId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "repositoryId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"name\": \"<string>\",\n  \"done\": \"<boolean>\",\n  \"error\": {},\n  \"response\": {}\n}",
+                                      "createdAt": "2026-07-28T01:45:54.000Z",
+                                      "updatedAt": "2026-07-28T01:45:54.000Z",
+                                      "uid": "35240-d98b73ac-ea9b-4ffd-9b17-530d6e7d533c"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:45:54.000Z",
+                                  "updatedAt": "2026-07-28T01:45:54.000Z",
+                                  "uid": "35240-6eb3cf6b-9fa1-4549-b883-8b4e8128403c"
+                                }
+                              ],
+                              "id": "1642bcfe-40b4-4bce-adf3-6cc267d34903",
+                              "createdAt": "2026-07-28T01:45:54.000Z",
+                              "updatedAt": "2026-07-28T01:45:54.000Z",
+                              "uid": "35240-1642bcfe-40b4-4bce-adf3-6cc267d34903"
+                            },
+                            {
+                              "name": "Google Cloud Artifact Registry List Repositories",
+                              "id": "46d38a7f-f68b-4fc9-8b2d-3e763e8fe44e",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "repositories"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "6b45d177-f5ba-4b26-b7d6-2fcfe0b3af94",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "10b0c435-75f5-4038-a2f0-a1784758464f",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Lists repositories in a given project and location."
+                              },
+                              "response": [
+                                {
+                                  "id": "ee92907d-1ee1-460d-8eb9-6f2f3882809b",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "repositories"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "location"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"repositories\": [\n    {\n      \"name\": \"<string>\",\n      \"format\": \"HELM\",\n      \"description\": \"<string>\",\n      \"labels\": {\n        \"nisie\": \"<string>\",\n        \"Lorem_4\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\",\n      \"mode\": \"STANDARD_REPOSITORY\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"format\": \"MAVEN\",\n      \"description\": \"<string>\",\n      \"labels\": {\n        \"voluptate_b49\": \"<string>\",\n        \"infa3\": \"<string>\",\n        \"fugiat_a\": \"<string>\",\n        \"nulla7\": \"<string>\"\n      },\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\",\n      \"mode\": \"STANDARD_REPOSITORY\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:45:54.000Z",
+                                  "updatedAt": "2026-07-28T01:45:54.000Z",
+                                  "uid": "35240-ee92907d-1ee1-460d-8eb9-6f2f3882809b"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:54.000Z",
+                              "updatedAt": "2026-07-28T01:45:54.000Z",
+                              "uid": "35240-46d38a7f-f68b-4fc9-8b2d-3e763e8fe44e"
+                            },
+                            {
+                              "name": "Google Cloud Artifact Registry Create Repository",
+                              "id": "f469ae4d-bbe7-4332-9e3f-a4585e5a0e46",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"format\": \"PYTHON\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"reprehenderit_9b\": \"<string>\",\n    \"officiab\": \"<string>\",\n    \"sint86\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"mode\": \"VIRTUAL_REPOSITORY\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "repositories"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "2ebb8d32-b8a4-4ab0-a71f-a763dbdccf71",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "79f8d10c-e8ed-4bf3-a975-a46dc6bcc9d8",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates a new repository in the specified project and location."
+                              },
+                              "response": [
+                                {
+                                  "id": "6b66eea8-a5f0-46c0-873c-1cd681c330f1",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"format\": \"PYTHON\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"reprehenderit_9b\": \"<string>\",\n    \"officiab\": \"<string>\",\n    \"sint86\": \"<string>\"\n  },\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"mode\": \"VIRTUAL_REPOSITORY\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectId/locations/:location/repositories",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "repositories"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "location"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"done\": \"<boolean>\",\n  \"error\": {},\n  \"response\": {}\n}",
+                                  "createdAt": "2026-07-28T01:45:54.000Z",
+                                  "updatedAt": "2026-07-28T01:45:54.000Z",
+                                  "uid": "35240-6b66eea8-a5f0-46c0-873c-1cd681c330f1"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:45:54.000Z",
+                              "updatedAt": "2026-07-28T01:45:54.000Z",
+                              "uid": "35240-f469ae4d-bbe7-4332-9e3f-a4585e5a0e46"
+                            }
+                          ],
+                          "id": "648d0d22-392a-4957-8a6d-6d05358f50ed",
+                          "createdAt": "2026-07-28T01:45:54.000Z",
+                          "updatedAt": "2026-07-28T01:45:54.000Z",
+                          "uid": "35240-648d0d22-392a-4957-8a6d-6d05358f50ed"
+                        }
+                      ],
+                      "id": "b05ab41e-5027-48c5-a7c8-25ba3bbb8a7b",
+                      "createdAt": "2026-07-28T01:45:54.000Z",
+                      "updatedAt": "2026-07-28T01:45:54.000Z",
+                      "uid": "35240-b05ab41e-5027-48c5-a7c8-25ba3bbb8a7b"
+                    },
+                    {
+                      "name": "Google Cloud Artifact Registry List Locations",
+                      "id": "848df52b-f4cb-406f-b774-4deb29aefa41",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectId/locations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectId",
+                            "locations"
+                          ],
+                          "variable": [
+                            {
+                              "id": "73950568-5d31-4a32-89be-f3bfe1fdfad2",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Lists available locations for the specified project."
+                      },
+                      "response": [
+                        {
+                          "id": "53c2504a-65a9-417c-a4c8-1a2a4b7f1152",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectId/locations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectId",
+                                "locations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"nextPageToken\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:45:54.000Z",
+                          "updatedAt": "2026-07-28T01:45:54.000Z",
+                          "uid": "35240-53c2504a-65a9-417c-a4c8-1a2a4b7f1152"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:45:54.000Z",
+                      "updatedAt": "2026-07-28T01:45:54.000Z",
+                      "uid": "35240-848df52b-f4cb-406f-b774-4deb29aefa41"
+                    }
+                  ],
+                  "id": "9b8370ed-3712-43f0-9f2c-a99949d13b42",
+                  "createdAt": "2026-07-28T01:45:54.000Z",
+                  "updatedAt": "2026-07-28T01:45:54.000Z",
+                  "uid": "35240-9b8370ed-3712-43f0-9f2c-a99949d13b42"
+                }
+              ],
+              "id": "2e83f95e-c440-4a20-b1e9-ebbfe4341f31",
+              "createdAt": "2026-07-28T01:45:54.000Z",
+              "updatedAt": "2026-07-28T01:45:54.000Z",
+              "uid": "35240-2e83f95e-c440-4a20-b1e9-ebbfe4341f31"
+            }
+          ],
+          "id": "4deada50-6849-4e4c-9b83-f8e3ff522231",
+          "createdAt": "2026-07-28T01:45:54.000Z",
+          "updatedAt": "2026-07-28T01:45:54.000Z",
+          "uid": "35240-4deada50-6849-4e4c-9b83-f8e3ff522231"
+        }
+      ],
+      "id": "eb7a8b81-c124-489a-a3b7-405d723d9219",
+      "createdAt": "2026-07-28T01:45:54.000Z",
+      "updatedAt": "2026-07-28T01:45:54.000Z",
+      "uid": "35240-eb7a8b81-c124-489a-a3b7-405d723d9219"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://artifactregistry.googleapis.com"
+    }
+  ]
+}

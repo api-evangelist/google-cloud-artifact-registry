@@ -1,0 +1,14 @@
+{
+  "provider": "google-cloud-artifact-registry",
+  "sources": [
+    "google-cloud-artifact-registry-projects-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-artifact-registry-projects-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
