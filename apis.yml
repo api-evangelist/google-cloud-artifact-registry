@@ -39,6 +39,8 @@ apis:
   humanURL: https://cloud.google.com/artifact-registry/docs
   baseURL: https://artifactregistry.googleapis.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
