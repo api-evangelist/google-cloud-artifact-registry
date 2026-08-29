@@ -4,6 +4,18 @@ description: >-
   Google Cloud Artifact Registry is a centralized repository for storing and managing container images, language
   packages, and build dependencies. It supports Docker, Maven, npm, Python, Go, Helm, and OS packages with integrated
   vulnerability scanning, IAM-based access control, and VPC Service Controls for supply chain security.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
